@@ -13,6 +13,7 @@ import DashboardLayout from "./layout/DashboardLayout";
 import AddProduct from "./pages/Dashboard/User/AddProduct";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import MyProduct from "./pages/Dashboard/User/MyProduct";
+import AdmineManage from "./pages/Dashboard/Admin-Manage-Users/AdmineManage";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -38,6 +39,7 @@ createRoot(document.getElementById("root")).render(
                 path="/dashboard/my-product"
                 element={<MyProduct />}
               ></Route>
+              <Route path="/dashboard/manage-user" element={<AdmineManage />} />
             </Route>
           </Routes>
         </AuthProvider>

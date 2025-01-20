@@ -15,7 +15,12 @@ const AdminMenu = ({ toggle }) => {
         toggle={toggle}
       />
 
-      <Menu label="manage user" address="users" icon={LuUser} toggle={toggle} />
+      <Menu
+        label="manage user"
+        address="manage-user"
+        icon={LuUser}
+        toggle={toggle}
+      />
       <Menu
         label="manage coupons"
         address="coupons"
