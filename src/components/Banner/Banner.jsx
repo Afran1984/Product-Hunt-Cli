@@ -13,7 +13,7 @@ const Banner = () => {
         <div className="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start space-y-3">
           <h1 className=" text-4xl font-semibold text-center md:text-start font-exo">
             <Typewriter
-              words={["ArtCraft"]}
+              words={["Product Hunt"]}
               loop={false}
               cursor
               cursorStyle="_"
