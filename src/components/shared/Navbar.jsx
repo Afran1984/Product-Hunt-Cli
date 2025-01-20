@@ -60,7 +60,7 @@ const Navbar = () => {
                 </summary>
                 <ul className="menu dropdown-content flex flex-col justify-center items-center bg-base-100 rounded-box z-[100] mx-[-60px] w-32 p-2 shadow">
                         <li className="disabled"> <p className="text-black">{user?.displayName}</p></li>
-                    <li><a>Dashboard</a></li>
+                    <li><NavLink to="/dashboard">Dashboard</NavLink></li>
                     <li><a onClick={logOut} className="bg-red-500 text-white w-fit text-sm mt-2">Logout</a></li>
                 </ul>
               </details>

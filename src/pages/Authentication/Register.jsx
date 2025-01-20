@@ -2,6 +2,7 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 const Register = () => {
   const { loading, setLoading, createUser, saveUser, updateUserProfile } = useAuth();
@@ -17,11 +18,12 @@ const Register = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
-    // const userInfo = {
-    //   email,
-    //   role,
-    //   status: "Verified",
-    // };
+    const userInfo = {
+      email,
+      photo,
+      role: "user",
+      status: "Verified",
+    };
 
     try {
       setLoading(true);
@@ -30,6 +32,13 @@ const Register = () => {
       // Update profile
       await updateUserProfile(name, photo);
       toast.success("Registration successful");
+       // Save user info
+       try {
+        await axios.put(`${import.meta.env.VITE_API_URL}/user`, userInfo);
+      } catch (err) {
+        toast.error("Failed to save user details.");
+        console.error(err);
+      }
       navigate(from);
     } catch (err) {
       toast.error(err?.message || "Registration failed");

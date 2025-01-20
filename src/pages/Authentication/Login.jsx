@@ -3,6 +3,7 @@ import { FaGoogle } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
+import axios from "axios";
 
 
 const Login = () => {
@@ -29,38 +30,38 @@ const handleLogin = async (e) => {
 const handleGoogleSignIn = async () => {
   try {
     const result = await signInWithGoogle();
-    // const user = result.user;
+    const user = result.user;
 
-    // let existingUser;
-    // try {
-    //   const res = await axios.get(
-    //     `${import.meta.env.VITE_API_URL}/user/${user.email}`
-    //   );
-    //   existingUser = res.data;
-    // } catch (err) {
-    //   if (err.response?.status === 404) {
-    //     existingUser = null;
-    //   } else {
-    //     throw err;
-    //   }
-    // }
+    let existingUser;
+    try {
+      const res = await axios.get(
+        `${import.meta.env.VITE_API_URL}/user/${user.email}`
+      );
+      existingUser = res.data;
+    } catch (err) {
+      if (err.response?.status === 404) {
+        existingUser = null;
+      } else {
+        throw err;
+      }
+    }
 
-    // if (!existingUser) {
-    //   const newUserInfo = {
-    //     email: user.email,
-    //     name: user.displayName,
-    //     profilePhoto: user.photoURL,
-    //     role: "User",
-    //     status: "Verified",
-    //   };
+    if (!existingUser) {
+      const newUserInfo = {
+        email: user.email,
+        name: user.displayName,
+        profilePhoto: user.photoURL,
+        role: "user",
+        status: "Verified",
+      };
 
-    //   await axios.put(`${import.meta.env.VITE_API_URL}/user`, newUserInfo);
-    // }
+      await axios.put(`${import.meta.env.VITE_API_URL}/user`, newUserInfo);
+    }
 
     navigate("/");
     toast.success("Logged in successfully");
   } catch (err) {
-    console.error("Google sign-in failed:", err?.message);
+ 
     toast.error("Google sign-in failed. Please try again.");
   }
 };

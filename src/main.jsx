@@ -9,6 +9,7 @@ import Register from './pages/Authentication/Register'
 import AuthProvider from './provider/AuthProvider'
 import Fetchered from './components/Ferchered/Fetchered'
 import { Toaster } from 'react-hot-toast'
+import DashboardLayout from './layout/DashboardLayout'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,8 +23,13 @@ createRoot(document.getElementById('root')).render(
         <Route path="/allproduct" element={<Fetchered />}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
-        </Route>
+            </Route>
+            
+            <Route path="/dashboard" element={<DashboardLayout/>}>
+
+           </Route>
         </Routes>
+        
     </AuthProvider>
   </BrowserRouter>
   </div>
