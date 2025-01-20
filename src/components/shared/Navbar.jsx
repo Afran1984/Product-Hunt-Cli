@@ -38,9 +38,9 @@ const Navbar = () => {
         </div>
         <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1">
-                <li><a>Home</a></li>
+                <li><NavLink to="/">Home</NavLink></li>
                 
-                <li><a>Product</a></li>
+                <li><NavLink to="/products">Product</NavLink></li>
             </ul>
         </div>
         <div className="navbar-end">
@@ -50,7 +50,7 @@ const Navbar = () => {
       
             <details className="dropdown">
             <summary className="btn m-1"><FaUserCircle size={24} /></summary>
-            <ul className="menu dropdown-content flex flex-col justify-center items-center bg-base-100 rounded-box z-[1] mx-[-60px] w-32 p-2 shadow">
+            <ul className="menu dropdown-content flex flex-col justify-center items-center bg-base-100 rounded-box z-[100] mx-[-60px] w-32 p-2 shadow">
                 <li><a>Username</a></li>
                 <li><a>Dashboard</a></li>
                 <li><a className="bg-red-500 text-white w-fit text-sm mt-2">Logout</a></li>
