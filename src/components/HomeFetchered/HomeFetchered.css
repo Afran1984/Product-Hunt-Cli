@@ -3,7 +3,7 @@
     grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
     gap: 10px; /* Space between grid items */
     justify-content: center; /* Center the grid items horizontally */
-    padding: 20px;
+    padding: 3px;
   }
   
   .product-card {
@@ -54,7 +54,7 @@
     font-size: 14px;
     border: none;
     border-radius: 4px;
-    background-color: #007bff;
+    background-color: rgb(191, 132, 21);
     color: #fff;
     cursor: pointer;
   }
