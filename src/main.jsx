@@ -10,11 +10,8 @@ import AuthProvider from './provider/AuthProvider'
 import Fetchered from './components/Ferchered/Fetchered'
 import { Toaster } from 'react-hot-toast'
 import DashboardLayout from './layout/DashboardLayout'
-<<<<<<< HEAD
-import ProductDetails from './components/ProductDetails/ProductDetails'
-=======
 import AddProduct from './pages/Dashboard/User/AddProduct'
->>>>>>> 9611dbf0a1f4df1901f40b16f47bc0a0b9142ac2
+import ProductDetails from './components/ProductDetails/ProductDetails'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
