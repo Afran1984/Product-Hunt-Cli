@@ -5,71 +5,67 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-
 const Login = () => {
-
-const { signInWithGoogle, user, signIn, setLoading, resetPassword } = useAuth();
+  const { signInWithGoogle, user, signIn, setLoading, resetPassword } =
+    useAuth();
 
   const navigate = useNavigate();
-  
-const handleLogin = async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const email = form.email.value;
-  const password = form.password.value;
 
-  try {
-    await signIn(email, password);
-    navigate("/");
-    toast.success("Logged in successfully");
-  } catch (err) {
-    toast.error(err?.message);
-  }
-};
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
 
-const handleGoogleSignIn = async () => {
-  try {
-    const result = await signInWithGoogle();
-    const user = result.user;
-
-    let existingUser;
     try {
-      const res = await axios.get(
-        `${import.meta.env.VITE_API_URL}/user/${user.email}`
-      );
-      existingUser = res.data;
+      await signIn(email, password);
+      navigate("/");
+      toast.success("Logged in successfully");
     } catch (err) {
-      if (err.response?.status === 404) {
-        existingUser = null;
-      } else {
-        throw err;
+      toast.error(err?.message);
+    }
+  };
+
+  const handleGoogleSignIn = async () => {
+    try {
+      const result = await signInWithGoogle();
+      const user = result.user;
+
+      let existingUser;
+      try {
+        const res = await axios.get(
+          `${import.meta.env.VITE_API_URL}/user/${user.email}`
+        );
+        existingUser = res.data;
+      } catch (err) {
+        if (err.response?.status === 404) {
+          existingUser = null;
+        } else {
+          throw err;
+        }
       }
+
+      if (!existingUser) {
+        const newUserInfo = {
+          email: user.email,
+          name: user.displayName,
+          profilePhoto: user.photoURL,
+          role: "user",
+          status: "Verified",
+        };
+
+        await axios.put(`${import.meta.env.VITE_API_URL}/user`, newUserInfo);
+      }
+
+      navigate("/");
+      toast.success("Logged in successfully");
+    } catch (err) {
+      toast.error("Google sign-in failed. Please try again.");
     }
+  };
 
-    if (!existingUser) {
-      const newUserInfo = {
-        email: user.email,
-        name: user.displayName,
-        profilePhoto: user.photoURL,
-        role: "user",
-        status: "Verified",
-      };
-
-      await axios.put(`${import.meta.env.VITE_API_URL}/user`, newUserInfo);
-    }
-
-    navigate("/");
-    toast.success("Logged in successfully");
-  } catch (err) {
- 
-    toast.error("Google sign-in failed. Please try again.");
-  }
-};
-
-  
-  
-    return <div>
-      
+  return (
+    <div>
       <div className="h-full md:h-[550px]">
         <div className="flex flex-col-reverse md:flex-row items-center justify-center">
           <div className="w-full md:w-1/2 lg:max-w-lg  border rounded-md px-4 py-6">
@@ -83,7 +79,7 @@ const handleGoogleSignIn = async () => {
               >
                 <FaGoogle /> Sign in with Google
               </button>
-             
+
               <p>___________________or___________________</p>
             </div>
             <form onSubmit={handleLogin}>
@@ -118,17 +114,15 @@ const handleGoogleSignIn = async () => {
             </form>
             <div className="flex justify-between my-2">
               <h3>Don't have an account? </h3>
-                        <Link
-                            to="/register" className="font-semibold hover:underline">
+              <Link to="/register" className="font-semibold hover:underline">
                 Register
               </Link>
             </div>
           </div>
-        
         </div>
       </div>
-  </div>;
+    </div>
+  );
 };
 
-
-export default Login
+export default Login;
