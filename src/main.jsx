@@ -11,6 +11,7 @@ import Fetchered from './components/Ferchered/Fetchered'
 import { Toaster } from 'react-hot-toast'
 import DashboardLayout from './layout/DashboardLayout'
 import AddProduct from './pages/Dashboard/User/AddProduct'
+import ProductDetails from './components/ProductDetails/ProductDetails'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -22,6 +23,7 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<Main />}>
         <Route index="true" element={<Home />}></Route>
         <Route path="/allproduct" element={<Fetchered />}></Route>
+        <Route path="/product/:id" element={<ProductDetails />} />
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
             </Route>
