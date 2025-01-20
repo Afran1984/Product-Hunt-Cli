@@ -40,7 +40,7 @@ const Navbar = () => {
             <ul className="menu menu-horizontal px-1">
                 <li><NavLink to="/">Home</NavLink></li>
                 
-                <li><NavLink to="/products">Product</NavLink></li>
+                <li><NavLink to="/allproduct">Product</NavLink></li>
             </ul>
         </div>
         <div className="navbar-end">

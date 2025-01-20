@@ -7,6 +7,7 @@ import Home from './pages/Home/Home'
 import Main from './layout/Main'
 import Login from './pages/Authentication/Login'
 import Register from './pages/Authentication/Register'
+import Fetchered from './components/Ferchered/Fetchered'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -14,7 +15,8 @@ createRoot(document.getElementById('root')).render(
     <BrowserRouter>
     <Routes>
         <Route path="/" element={<Main />}>
-          <Route index="true" element={<Home />}></Route>
+        <Route index="true" element={<Home />}></Route>
+        <Route path="/allproduct" element={<Fetchered />}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
         </Route>
