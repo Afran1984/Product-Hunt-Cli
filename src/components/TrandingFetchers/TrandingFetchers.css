@@ -1,0 +1,94 @@
+.trending-container {
+    padding: 40px;
+    text-align: center;
+  }
+  
+  .trending-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .product-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 3 equal columns for trending */
+    gap: 20px;
+    justify-content: center;
+  }
+  
+  .product-card {
+    width: 280px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .product-name {
+    font-size: 18px;
+    margin: 12px 0;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .product-name:hover {
+    text-decoration: underline;
+  }
+  
+  .product-tags {
+    margin: 8px 0;
+  }
+  
+  .tag {
+    display: inline-block;
+    background-color: #f1f1f1;
+    color: #555;
+    padding: 4px 8px;
+    margin: 4px;
+    border-radius: 12px;
+    font-size: 12px;
+  }
+  
+  .upvote-button {
+    margin-top: 12px;
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+  }
+  
+  .upvote-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .vote-icon {
+    margin-right: 8px;
+  }
+  
+  .show-all-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .show-all-button:hover {
+    background-color: #0056b3;
+  }
+  
