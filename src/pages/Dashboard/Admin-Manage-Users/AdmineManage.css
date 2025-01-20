@@ -1,0 +1,42 @@
+.user-management {
+    max-width: 800px;
+    margin: 20px auto;
+    text-align: center;
+  }
+  
+  .user-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .user-table th,
+  .user-table td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .user-table th {
+    background-color: #f4f4f4;
+  }
+  
+  .role-button {
+    margin: 0 5px;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .role-button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .role-button:hover:not(:disabled) {
+    background-color: #0056b3;
+  }
+  
