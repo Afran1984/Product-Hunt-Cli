@@ -1,5 +1,6 @@
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const AddProduct = () => {
     const { user } = useAuth()
@@ -11,7 +12,21 @@ const AddProduct = () => {
         const product_desc = form.product_desc.value();
         const owner_name = form.owner_name.value();
         const owner_email = form.owner_name.value();
-        const owner_password = form.owner_name.value();
+        const owner_photo = form.owner_name.value();
+        const ownerInfo = [
+            owner_name,
+            owner_email,
+            owner_photo
+        ]
+        const productInfo = {
+            product_name, product_image, product_desc, ownerInfo
+        };
+        try {
+            // write post api here
+        }
+        catch (err) {
+            toast.error('Something Went Wrong')
+        }
     }
     return <div>AddProduct
       
@@ -39,7 +54,7 @@ const AddProduct = () => {
                 </div>
                 <div>
                     <label htmlFor="">Owner Image</label>
-                    <input name="owner_image" disabled="true" type="text" value={user?.photoURL} placeholder="Owner Email" className="block mt-1 px-4 py-2 rounded-sm border w-full" />
+                    <input name="owner_photo" disabled="true" type="text" value={user?.photoURL} placeholder="Owner Email" className="block mt-1 px-4 py-2 rounded-sm border w-full" />
                 </div>
             </div>
             <button className="px-4 py-2 mt-2 bg-black text-white rounded-sm">Submit</button>
