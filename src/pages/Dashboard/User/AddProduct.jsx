@@ -20,6 +20,7 @@ const AddProduct = () => {
       product_image,
       product_desc,
       ownerInfo,
+      status: "pending",
     };
     try {
       // write post api here
