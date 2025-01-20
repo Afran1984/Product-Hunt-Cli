@@ -1,9 +1,72 @@
 import React from "react";
 import { FaGoogle } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 
 const Login = () => {
+
+const { signInWithGoogle, user, signIn, setLoading, resetPassword } = useAuth();
+
+  const navigate = useNavigate();
+  
+const handleLogin = async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const email = form.email.value;
+  const password = form.password.value;
+
+  try {
+    await signIn(email, password);
+    navigate("/");
+    toast.success("Logged in successfully");
+  } catch (err) {
+    toast.error(err?.message);
+  }
+};
+
+const handleGoogleSignIn = async () => {
+  try {
+    const result = await signInWithGoogle();
+    // const user = result.user;
+
+    // let existingUser;
+    // try {
+    //   const res = await axios.get(
+    //     `${import.meta.env.VITE_API_URL}/user/${user.email}`
+    //   );
+    //   existingUser = res.data;
+    // } catch (err) {
+    //   if (err.response?.status === 404) {
+    //     existingUser = null;
+    //   } else {
+    //     throw err;
+    //   }
+    // }
+
+    // if (!existingUser) {
+    //   const newUserInfo = {
+    //     email: user.email,
+    //     name: user.displayName,
+    //     profilePhoto: user.photoURL,
+    //     role: "User",
+    //     status: "Verified",
+    //   };
+
+    //   await axios.put(`${import.meta.env.VITE_API_URL}/user`, newUserInfo);
+    // }
+
+    navigate("/");
+    toast.success("Logged in successfully");
+  } catch (err) {
+    console.error("Google sign-in failed:", err?.message);
+    toast.error("Google sign-in failed. Please try again.");
+  }
+};
+
+  
+  
     return <div>
       
       <div className="h-full md:h-[550px]">
@@ -14,7 +77,7 @@ const Login = () => {
                 You must sign in to join
               </h2>
               <button
-                
+                onClick={handleGoogleSignIn}
                 className="btn btn-outline w-fit btn-sm"
               >
                 <FaGoogle /> Sign in with Google
@@ -22,7 +85,7 @@ const Login = () => {
              
               <p>___________________or___________________</p>
             </div>
-            <form >
+            <form onSubmit={handleLogin}>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Email</span>

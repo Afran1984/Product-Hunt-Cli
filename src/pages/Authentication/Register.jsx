@@ -1,7 +1,43 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
+import toast from "react-hot-toast";
 
 const Register = () => {
+  const { loading, setLoading, createUser, saveUser, updateUserProfile } = useAuth();
+  const location = useLocation();
+  const from = location?.state || "/";
+  const navigate = useNavigate();
+
+  const handleRegistration = async (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const photo = form.photo.value;
+    const password = form.password.value;
+
+    // const userInfo = {
+    //   email,
+    //   role,
+    //   status: "Verified",
+    // };
+
+    try {
+      setLoading(true);
+      // Sign up
+      const result = await createUser(email, password);
+      // Update profile
+      await updateUserProfile(name, photo);
+      toast.success("Registration successful");
+      navigate(from);
+    } catch (err) {
+      toast.error(err?.message || "Registration failed");
+      console.error(err);
+    } finally {
+      setLoading(false);
+    }
+  };
     return <div>
       
       <div>
@@ -15,7 +51,7 @@ const Register = () => {
               </h1>
               <p className="italic">Enter your information to register</p>
             </div>
-            <form className="w-full">
+            <form onSubmit={handleRegistration} className="w-full">
               <div className="flex gap-2">
                 <div className="w-1/2">
                   <label className="label">

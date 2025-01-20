@@ -2,7 +2,9 @@ import React from "react";
 
 import { FaUserCircle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 const Navbar = () => {
+    const { user, logOut } = useAuth();
     return <div className="navbar bg-base-100">
         <div className="navbar-start">
             <div className="dropdown">
@@ -44,18 +46,25 @@ const Navbar = () => {
             </ul>
         </div>
         <div className="navbar-end">
-            <button className="bg-green-600 text-white px-3 text-sm py-1 rounded-sm">
+            {
+                !user &&  <button className="bg-green-600 text-white px-3 text-sm py-1 rounded-sm">
                 <NavLink to="/login">Login</NavLink>
             </button>
+         }
       
-            <details className="dropdown">
-            <summary className="btn m-1"><FaUserCircle size={24} /></summary>
-            <ul className="menu dropdown-content flex flex-col justify-center items-center bg-base-100 rounded-box z-[100] mx-[-60px] w-32 p-2 shadow">
-                <li><a>Username</a></li>
-                <li><a>Dashboard</a></li>
-                <li><a className="bg-red-500 text-white w-fit text-sm mt-2">Logout</a></li>
-            </ul>
-            </details>
+            {
+                user && 
+                <details className="dropdown">
+                <summary className="btn m-1">
+                  <img src={user?.photoURL} className="h-6 w-6 rounded-full" /> 
+                </summary>
+                <ul className="menu dropdown-content flex flex-col justify-center items-center bg-base-100 rounded-box z-[100] mx-[-60px] w-32 p-2 shadow">
+                        <li className="disabled"> <p className="text-black">{user?.displayName}</p></li>
+                    <li><a>Dashboard</a></li>
+                    <li><a onClick={logOut} className="bg-red-500 text-white w-fit text-sm mt-2">Logout</a></li>
+                </ul>
+              </details>
+           }
         </div>
     </div>
 };
