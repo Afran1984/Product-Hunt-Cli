@@ -7,6 +7,7 @@ import Main from './layout/Main'
 import Login from './pages/Authentication/Login'
 import Register from './pages/Authentication/Register'
 import AuthProvider from './provider/AuthProvider'
+import Fetchered from './components/Ferchered/Fetchered'
 import { Toaster } from 'react-hot-toast'
 
 createRoot(document.getElementById('root')).render(
@@ -17,7 +18,8 @@ createRoot(document.getElementById('root')).render(
         <Toaster />
         <Routes>
         <Route path="/" element={<Main />}>
-          <Route index="true" element={<Home />}></Route>
+        <Route index="true" element={<Home />}></Route>
+        <Route path="/allproduct" element={<Fetchered />}></Route>
           <Route path='/login' element={<Login/>}></Route>
           <Route path='/register' element={<Register/>}></Route>
         </Route>
