@@ -1,7 +1,7 @@
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
-import axios from "axios";
+import axios, { Axios } from "axios";
 
 const AddProduct = () => {
   const { user } = useAuth();
@@ -12,8 +12,8 @@ const AddProduct = () => {
     const product_image = form.product_image.value;
     const product_desc = form.product_desc.value;
     const owner_name = form.owner_name.value;
-    const owner_email = form.owner_name.value;
-    const owner_photo = form.owner_name.value;
+    const owner_email = form.owner_email.value;
+    const owner_photo = form.owner_photo.value;
     const ownerInfo = [owner_name, owner_email, owner_photo];
     const productInfo = {
       product_name,
@@ -56,7 +56,7 @@ const AddProduct = () => {
             <label htmlFor="">Product Description</label>
             <textarea
               name="product_desc"
-              row="4"
+              rows="4"
               cols="4"
               type="text"
               placeholder="Enter Product Description"
@@ -67,7 +67,7 @@ const AddProduct = () => {
             <label htmlFor="">Owner Name</label>
             <input
               name="owner_name"
-              disabled="true"
+              disabled
               type="text"
               placeholder="Owner Name"
               value={user?.displayName}
@@ -78,7 +78,7 @@ const AddProduct = () => {
             <label htmlFor="">Owner Email</label>
             <input
               name="owner_email"
-              disabled="true"
+              disabled
               type="text"
               value={user?.email}
               placeholder="Owner Email"
@@ -89,7 +89,7 @@ const AddProduct = () => {
             <label htmlFor="">Owner Image</label>
             <input
               name="owner_photo"
-              disabled="true"
+              disabled
               type="text"
               value={user?.photoURL}
               placeholder="Owner Email"
