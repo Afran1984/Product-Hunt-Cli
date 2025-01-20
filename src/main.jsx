@@ -10,6 +10,7 @@ import Register from './pages/Authentication/Register'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
+    <div className='max-w-screen-xl mx-auto'>
     <BrowserRouter>
     <Routes>
         <Route path="/" element={<Main />}>
@@ -20,5 +21,6 @@ createRoot(document.getElementById('root')).render(
 
     </Routes>
   </BrowserRouter>
+  </div>
   </StrictMode>,
 )
