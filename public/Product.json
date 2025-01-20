@@ -1,7 +1,7 @@
 [
     {
       "id": 1,
-      "productImage": "https://example.com/images/product1.jpg",
+      "productImage": "https://i.ibb.co.com/1MKnwZf/Untitled-design-4.png",
       "productName": "Smart Home Hub",
       "tags": ["IoT", "Smart Home", "Gadgets"],
       "upvotes": 124,
@@ -10,7 +10,7 @@
     },
     {
       "id": 2,
-      "productImage": "https://example.com/images/product2.jpg",
+      "productImage": "https://i.ibb.co.com/KxbZcqN/Untitled-design-5.png",
       "productName": "Noise-Cancelling Headphones",
       "tags": ["Audio", "Headphones", "Tech"],
       "upvotes": 89,
@@ -19,7 +19,7 @@
     },
     {
       "id": 3,
-      "productImage": "https://example.com/images/product3.jpg",
+      "productImage": "https://i.ibb.co.com/J5CwTfL/Untitled-design-6.png",
       "productName": "Eco-Friendly Water Bottle",
       "tags": ["Sustainability", "Lifestyle", "Reusable"],
       "upvotes": 67,
@@ -28,7 +28,7 @@
     },
     {
       "id": 4,
-      "productImage": "https://example.com/images/product4.jpg",
+      "productImage": "https://i.ibb.co.com/0VnWKbx/Untitled-design-7.png",
       "productName": "Gaming Laptop",
       "tags": ["Gaming", "Laptops", "Tech"],
       "upvotes": 200,
@@ -37,7 +37,7 @@
     },
     {
       "id": 5,
-      "productImage": "https://example.com/images/product5.jpg",
+      "productImage": "https://i.ibb.co.com/xCSbjBg/Untitled-design-8.png",
       "productName": "Portable Solar Charger",
       "tags": ["Solar", "Portable", "Tech"],
       "upvotes": 50,
@@ -46,7 +46,7 @@
     },
     {
       "id": 6,
-      "productImage": "https://example.com/images/product6.jpg",
+      "productImage": "https://i.ibb.co.com/MGPxfVV/Untitled-design-9.png",
       "productName": "Ergonomic Office Chair",
       "tags": ["Furniture", "Comfort", "Work"],
       "upvotes": 95,
@@ -55,7 +55,7 @@
     },
     {
       "id": 7,
-      "productImage": "https://example.com/images/product7.jpg",
+      "productImage": "https://i.ibb.co.com/Gdgyqn4/Untitled-design-10.png",
       "productName": "Wireless Earbuds",
       "tags": ["Audio", "Wireless", "Tech"],
       "upvotes": 80,
@@ -64,7 +64,7 @@
     },
     {
       "id": 8,
-      "productImage": "https://example.com/images/product8.jpg",
+      "productImage": "https://i.ibb.co.com/7vR5qGS/Our-Doors-Are-Always-Open-5.png",
       "productName": "Smart Fitness Tracker",
       "tags": ["Fitness", "Health", "Tech"],
       "upvotes": 140,
@@ -73,7 +73,7 @@
     },
     {
       "id": 9,
-      "productImage": "https://example.com/images/product9.jpg",
+      "productImage": "https://i.ibb.co.com/Gdgyqn4/Untitled-design-10.png",
       "productName": "Portable Bluetooth Speaker",
       "tags": ["Audio", "Portable", "Tech"],
       "upvotes": 75,
@@ -82,7 +82,7 @@
     },
     {
       "id": 10,
-      "productImage": "https://example.com/images/product10.jpg",
+      "productImage": "https://i.ibb.co.com/6Nv7ydm/Untitled-design-11.png",
       "productName": "Compact DSLR Camera",
       "tags": ["Photography", "Camera", "Tech"],
       "upvotes": 190,
@@ -91,7 +91,7 @@
     },
     {
       "id": 11,
-      "productImage": "https://example.com/images/product11.jpg",
+      "productImage": "https://i.ibb.co.com/WH0w1G6/Untitled-design-12.png",
       "productName": "Smart Thermostat",
       "tags": ["Smart Home", "Energy", "IoT"],
       "upvotes": 65,
@@ -100,7 +100,7 @@
     },
     {
       "id": 12,
-      "productImage": "https://example.com/images/product12.jpg",
+      "productImage": "https://i.ibb.co.com/WH0w1G6/Untitled-design-12.png",
       "productName": "Wireless Keyboard and Mouse",
       "tags": ["Work", "Tech", "Accessories"],
       "upvotes": 55,
@@ -109,7 +109,7 @@
     },
     {
       "id": 13,
-      "productImage": "https://example.com/images/product13.jpg",
+      "productImage": "https://i.ibb.co.com/zfpSLwY/Untitled-design-13.png",
       "productName": "4K UHD Monitor",
       "tags": ["Displays", "Tech", "Work"],
       "upvotes": 135,
@@ -118,7 +118,7 @@
     },
     {
       "id": 14,
-      "productImage": "https://example.com/images/product14.jpg",
+      "productImage": "https://i.ibb.co.com/whnhPg4/Our-Doors-Are-Always-Open.png",
       "productName": "Smart Doorbell Camera",
       "tags": ["Security", "Smart Home", "Tech"],
       "upvotes": 145,
@@ -127,7 +127,7 @@
     },
     {
       "id": 15,
-      "productImage": "https://example.com/images/product15.jpg",
+      "productImage": "https://example.com/images/product15.jpghttps://i.ibb.co.com/LS1Z24L/Our-Doors-Are-Always-Open-1.png",
       "productName": "Multi-Cook Instant Pot",
       "tags": ["Cooking", "Lifestyle", "Home"],
       "upvotes": 110,
@@ -136,7 +136,7 @@
     },
     {
       "id": 16,
-      "productImage": "https://example.com/images/product16.jpg",
+      "productImage": "https://i.ibb.co.com/Gdgyqn4/Untitled-design-10.png",
       "productName": "Noise-Reducing White Noise Machine",
       "tags": ["Health", "Lifestyle", "Tech"],
       "upvotes": 30,
@@ -145,7 +145,7 @@
     },
     {
       "id": 17,
-      "productImage": "https://example.com/images/product17.jpg",
+      "productImage": "https://i.ibb.co.com/YRH1b2K/powerbank.jpg",
       "productName": "Portable Power Bank",
       "tags": ["Tech", "Portable", "Accessories"],
       "upvotes": 70,
@@ -154,7 +154,7 @@
     },
     {
       "id": 18,
-      "productImage": "https://example.com/images/product18.jpg",
+      "productImage": "https://i.ibb.co.com/zfpSLwY/Untitled-design-13.png",
       "productName": "Anti-Glare Computer Glasses",
       "tags": ["Work", "Health", "Accessories"],
       "upvotes": 45,
@@ -163,7 +163,7 @@
     },
     {
       "id": 19,
-      "productImage": "https://example.com/images/product19.jpg",
+      "productImage": "https://i.ibb.co.com/RHqJjWG/Our-Doors-Are-Always-Open-3.png",
       "productName": "Minimalist Wallet",
       "tags": ["Lifestyle", "Accessories", "Fashion"],
       "upvotes": 85,
@@ -172,7 +172,7 @@
     },
     {
       "id": 20,
-      "productImage": "https://example.com/images/product20.jpg",
+      "productImage": "https://i.ibb.co.com/C1yn5TC/Our-Doors-Are-Always-Open-4.png",
       "productName": "Digital Drawing Tablet",
       "tags": ["Art", "Tech", "Creativity"],
       "upvotes": 125,
