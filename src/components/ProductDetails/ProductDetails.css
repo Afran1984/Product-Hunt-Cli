@@ -1,0 +1,82 @@
+/* Product details container */
+.product-details {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    text-align: center;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Product image */
+  .product-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  /* Product title */
+  .product-title {
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #333;
+  }
+  
+  /* Tags styling */
+  .product-tags {
+    margin: 15px 0;
+  }
+  
+  .tag {
+    display: inline-block;
+    background: #f0f0f0;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  /* Upvotes display */
+  .product-upvotes {
+    font-size: 1.2rem;
+    margin: 15px 0;
+    color: #666;
+  }
+  
+  /* Buy button */
+  .buy-button {
+    background: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .buy-button:hover {
+    background: #218838;
+  }
+  
+  /* Reviews section */
+  .reviews-section {
+    margin-top: 30px;
+    text-align: left;
+  }
+  
+  .reviews-section h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+  }
+  
+  .reviews-section p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
