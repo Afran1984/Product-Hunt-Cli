@@ -14,6 +14,7 @@ import AddProduct from "./pages/Dashboard/User/AddProduct";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import MyProduct from "./pages/Dashboard/User/MyProduct";
 import AdmineManage from "./pages/Dashboard/Admin-Manage-Users/AdmineManage";
+import Statistics from "./pages/Dashboard/Statistics/statistics";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -25,7 +26,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Main />}>
               <Route index="true" element={<Home />}></Route>
               <Route path="/allproduct" element={<Fetchered />}></Route>
-              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/login" element={<Login />}></Route>
               <Route path="/register" element={<Register />}></Route>
             </Route>
@@ -40,6 +41,7 @@ createRoot(document.getElementById("root")).render(
                 element={<MyProduct />}
               ></Route>
               <Route path="/dashboard/manage-user" element={<AdmineManage />} />
+              <Route path="/dashboard/statistics" element={<Statistics/>} />
             </Route>
           </Routes>
         </AuthProvider>

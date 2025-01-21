@@ -6,7 +6,7 @@ const AdmineManage = () => {
 
   // Fetch users from the backend or a mock JSON file
   useEffect(() => {
-    fetch("./user.json") // Replace with your backend API endpoint
+    fetch("https://product-hunt-server-gamma.vercel.app/users") // Replace with your backend API endpoint
       .then((response) => response.json())
       .then((data) => setUsers(data))
       .catch((error) => console.error("Error fetching users:", error));
