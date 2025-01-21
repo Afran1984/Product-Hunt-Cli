@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const MyProduct = () => {
   const [products, setProducts] = useState([]);
@@ -48,7 +49,9 @@ const MyProduct = () => {
                 <td>{pr.product_name}</td>
                 <td>Votes</td>
                 <td className="text-red-600">{pr.status}</td>
-                <td>Update</td>
+                <td>
+                  <Link  to={`/dashboard/update-product/${pr._id}`}>Update</Link>
+                </td>
                 <td onClick={() => handleDelete(pr._id)}>Delete</td>
               </tr>
             ))}

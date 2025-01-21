@@ -14,6 +14,7 @@ import AddProduct from "./pages/Dashboard/User/AddProduct";
 import ProductDetails from "./components/ProductDetails/ProductDetails";
 import MyProduct from "./pages/Dashboard/User/MyProduct";
 import AdmineManage from "./pages/Dashboard/Admin-Manage-Users/AdmineManage";
+import UpdateProduct from "./pages/Dashboard/User/UpdateProduct";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -38,6 +39,11 @@ createRoot(document.getElementById("root")).render(
               <Route
                 path="/dashboard/my-product"
                 element={<MyProduct />}
+              ></Route>
+               <Route
+                path="/dashboard/update-product/:id"
+                
+                element={<UpdateProduct />}
               ></Route>
               <Route path="/dashboard/manage-user" element={<AdmineManage />} />
             </Route>
