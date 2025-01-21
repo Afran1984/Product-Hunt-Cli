@@ -1,33 +1,54 @@
 import { useState, useEffect } from "react";
 import "./AdmineManage.css";
+import toast from "react-hot-toast";
+import axios from "axios";
 
 const AdmineManage = () => {
   const [users, setUsers] = useState([]);
 
-  // Fetch users from the backend or a mock JSON file
   useEffect(() => {
-    fetch("https://product-hunt-server-gamma.vercel.app/users") // Replace with your backend API endpoint
-      .then((response) => response.json())
-      .then((data) => setUsers(data))
-      .catch((error) => console.error("Error fetching users:", error));
+    const fetchUsers = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_API_URL}/users`);
+        setUsers(res.data);
+      } catch (err) {
+        toast.error(
+          err.response?.data?.message ||
+            "An error occurred while fetching users."
+        );
+      }
+    };
+
+    fetchUsers();
   }, []);
 
-  // Handle role change
-  const updateUserRole = (userId, newRole) => {
-    setUsers((prevUsers) =>
-      prevUsers.map((user) =>
-        user.id === userId ? { ...user, role: newRole } : user
-      )
-    );
+  const handleRoleUpdate = async (userId, newRole) => {
+    try {
+      const response = await axios.patch(
+        `${import.meta.env.VITE_API_URL}/user/role/${userId}`,
+        { role: newRole },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-    // Send updated role to the backend
-    fetch(`/updateUserRole/${userId}`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ role: newRole }),
-    }).catch((error) => console.error("Error updating role:", error));
+      if (response.data.success) {
+        toast.success(`Role updated to ${newRole} successfully!`);
+        // Update the user's role in the UI
+        setUsers((prevUsers) =>
+          prevUsers.map((user) =>
+            user._id === userId ? { ...user, role: newRole } : user
+          )
+        );
+      } else {
+        toast.error(response.data.message || "Failed to update role.");
+      }
+    } catch (error) {
+      console.error("Error:", error.response?.data || error.message);
+      toast.error(error.response?.data?.message || "Failed to update role.");
+    }
   };
 
   return (
@@ -44,25 +65,35 @@ const AdmineManage = () => {
         </thead>
         <tbody>
           {users.map((user) => (
-            <tr key={user.id}>
-              <td>{user.name}</td>
+            <tr key={user._id}>
+              <td>{user.name || "N/A"}</td>
               <td>{user.email}</td>
               <td>{user.role}</td>
               <td>
-                <button
-                  onClick={() => updateUserRole(user.id, "Moderator")}
-                  disabled={user.role === "Moderator"}
-                  className="role-button"
-                >
-                  Make Moderator
-                </button>
-                <button
-                  onClick={() => updateUserRole(user.id, "Admin")}
-                  disabled={user.role === "Admin"}
-                  className="role-button"
-                >
-                  Make Admin
-                </button>
+                {user.role !== "moderator" && (
+                  <button
+                    onClick={() => handleRoleUpdate(user._id, "moderator")}
+                    className="update-role-btn"
+                  >
+                    Make Moderator
+                  </button>
+                )}
+                {user.role !== "admin" && (
+                  <button
+                    onClick={() => handleRoleUpdate(user._id, "admin")}
+                    className="update-role-btn"
+                  >
+                    Make Admin
+                  </button>
+                )}
+                {user.role !== "user" && (
+                  <button
+                    onClick={() => handleRoleUpdate(user._id, "user")}
+                    className="update-role-btn"
+                  >
+                    Revoke Role
+                  </button>
+                )}
               </td>
             </tr>
           ))}
