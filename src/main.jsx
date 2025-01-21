@@ -26,7 +26,7 @@ createRoot(document.getElementById("root")).render(
             <Route path="/" element={<Main />}>
               <Route index="true" element={<Home />}></Route>
               <Route path="/allproduct" element={<Fetchered />}></Route>
-              <Route path="/product/:id" element={<ProductDetails />} />
+              <Route path="/products/:id" element={<ProductDetails />} />
               <Route path="/login" element={<Login />}></Route>
               <Route path="/register" element={<Register />}></Route>
             </Route>
@@ -46,6 +46,7 @@ createRoot(document.getElementById("root")).render(
                 element={<UpdateProduct />}
               ></Route>
               <Route path="/dashboard/manage-user" element={<AdmineManage />} />
+              <Route path="/dashboard/statistics" element={<Statistics/>} />
             </Route>
           </Routes>
         </AuthProvider>

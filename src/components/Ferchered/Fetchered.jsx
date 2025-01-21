@@ -1,67 +1,63 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import "./Ferchered.css";
 
 const Fetchered = () => {
-    const [products, setProducts] = useState([]);
-    const [loggedInUserId, setLoggedInUserId] = useState(1); // Example logged-in user ID
+  const [products, setProducts] = useState([]);
+  const [loggedInUserId, setLoggedInUserId] = useState(1); // Mock logged-in user ID
+  const navigate = useNavigate(); // React Router hook for navigation
 
   useEffect(() => {
-    // Fetch data from the JSON file
-    fetch("./Product.json")
-      .then((response) => response.json())
-      .then((data) => {
-        // Sort products by timestamp (latest first)
-        const sortedData = data.sort(
-          (a, b) => new Date(b.timestamp) - new Date(a.timestamp)
-        );
-        setProducts(sortedData);
-      })
-      .catch((error) => console.error("Error loading data:", error));
+    getProduct();
   }, []);
+
+  const getProduct = async () => {
+    try {
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/products`);
+      setProducts(res.data);
+    } catch (error) {
+      console.error("Error fetching products:", error);
+    }
+  };
 
   const handleUpvote = (productId) => {
     if (!loggedInUserId) {
       alert("Please log in to upvote!");
-      // Redirect to login page
-      window.location.href = "/login";
       return;
     }
 
-    // Simulate upvote
     setProducts((prevProducts) =>
       prevProducts.map((product) =>
-        product.id === productId
+        product._id === productId
           ? { ...product, upvotes: product.upvotes + 1 }
           : product
       )
     );
   };
 
+  const handleProductClick = (productId) => {
+    navigate(`/products/${productId}`);
+  };
+
   return (
     <div className="product-container">
       {products.map((product) => (
-        <div key={product.id} className="product-card">
+        <div key={product._id} className="product-card">
           <img
-            src={product.productImage}
-            alt={product.productName}
+            src={product.product_image}
+            alt={product.product_name}
             className="product-image"
           />
           <h3
             className="product-name"
-            onClick={() => (window.location.href = `/product/${product.id}`)}
+            onClick={() => handleProductClick(product._id)}
           >
-            {product.productName}
+            {product.product_name}
           </h3>
-          <div className="product-tags">
-            {product.tags.map((tag, index) => (
-              <span key={index} className="tag">
-                #{tag}
-              </span>
-            ))}
-          </div>
           <button
             className="upvote-button"
-            onClick={() => handleUpvote(product.id)}
+            onClick={() => handleUpvote(product._id)}
             disabled={loggedInUserId === product.ownerId}
           >
             <i className="vote-icon">👍</i> {product.upvotes}
