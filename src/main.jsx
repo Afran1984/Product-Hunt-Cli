@@ -15,7 +15,7 @@ import ProductDetails from "./components/ProductDetails/ProductDetails";
 import MyProduct from "./pages/Dashboard/User/MyProduct";
 import AdmineManage from "./pages/Dashboard/Admin-Manage-Users/AdmineManage";
 import UpdateProduct from "./pages/Dashboard/User/UpdateProduct";
-import statistics from "./pages/Dashboard/Statistics/statistics";
+import Statistics from "./pages/Dashboard/Statistics/statistics";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -46,7 +46,7 @@ createRoot(document.getElementById("root")).render(
                 element={<UpdateProduct />}
               ></Route>
               <Route path="/dashboard/manage-user" element={<AdmineManage />} />
-              <Route path="/dashboard/statistics" element={<statistics />} />
+              <Route path="/dashboard/statistics" element={<Statistics />} />
             </Route>
           </Routes>
         </AuthProvider>

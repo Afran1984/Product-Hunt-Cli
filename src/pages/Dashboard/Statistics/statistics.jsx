@@ -10,8 +10,8 @@
 
 // export default statistics;
 
-import React from 'react';
-import { Bar } from 'react-chartjs-2';
+import React from "react";
+import { Bar } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -20,19 +20,26 @@ import {
   Title,
   Tooltip,
   Legend,
-} from 'chart.js';
+} from "chart.js";
 
-ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  BarElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
 const statistics = () => {
   // Sample data for the chart
   const data = {
-    labels: ['Total Products', 'Total Likes', 'Total Products Sold'],
+    labels: ["Total Products", "Total Likes", "Total Products Sold"],
     datasets: [
       {
-        label: 'Statistics',
+        label: "Statistics",
         data: [120, 450, 300], // Replace with your dynamic data
-        backgroundColor: ['#4caf50', '#2196f3', '#ff9800'],
+        backgroundColor: ["#4caf50", "#2196f3", "#ff9800"],
       },
     ],
   };
@@ -41,18 +48,18 @@ const statistics = () => {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: "top",
       },
       title: {
         display: true,
-        text: 'Product Statistics Overview',
+        text: "Product Statistics Overview",
       },
     },
   };
 
   return (
-    <div style={{ width: '80%', margin: 'auto', marginTop: '50px' }}>
-      <h2 style={{ textAlign: 'center' }}>Statistics Page</h2>
+    <div style={{ width: "80%", margin: "auto", marginTop: "50px" }}>
+      <h2 style={{ textAlign: "center" }}>Statistics Page</h2>
       <Bar data={data} options={options} />
     </div>
   );

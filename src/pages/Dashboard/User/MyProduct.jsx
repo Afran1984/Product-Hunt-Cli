@@ -50,7 +50,7 @@ const MyProduct = () => {
                 <td>Votes</td>
                 <td className="text-red-600">{pr.status}</td>
                 <td>
-                  <Link  to={`/dashboard/update-product/${pr._id}`}>Update</Link>
+                  <Link to={`/dashboard/update-product/${pr._id}`}>Update</Link>
                 </td>
                 <td onClick={() => handleDelete(pr._id)}>Delete</td>
               </tr>
